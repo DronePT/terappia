@@ -1,0 +1,30 @@
+{
+  "name": "terappia",
+  "version": "0.0.1",
+  "description": "resful api for terappia",
+  "main": "index.js",
+  "author": "Andre Mota <dronept@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "DEBUG=terappia:* nodemon index.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "eslint": "^4.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "dependencies": {
+    "debug": "^2.6.8",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "2",
+    "koa-router": "next"
+  }
+}
