@@ -31,6 +31,12 @@ class Responder {
     this._setMeta(meta)
     return this
   }
+
+  toJSON () {
+    let { success, data, meta, error, code } = this
+    if (error) error = { message: error, code }
+    return { success, data, error, meta }
+  }
 }
 
 export default Responder
