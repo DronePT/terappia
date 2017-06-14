@@ -5,6 +5,7 @@ import KoaLogger from 'koa-logger'
 
 // our packages
 import router from './api/router'
+import Responder from './utils/Responder'
 
 const logger = require('debug')('terappia:app')
 
@@ -33,13 +34,23 @@ class App {
 
     this.app
       .use(router.routes())
-      .use(router.allowedMethods())
+      .use(
+        router.allowedMethods({
+          throw: false,
+          notImplemented: () => new Error('notimpl!'),
+          methodNotAllowed: () => new Error('lol')
+        })
+      )
   }
 
   handleErrors () {
     this.app
-      .on('error', (err, ctx) =>
-        logger('server error', err, ctx)
+      .on(
+        'error',
+        (err, ctx) => {
+          logger('Application error', err)
+          logger('Error context', ctx)
+        }
       )
   }
 
