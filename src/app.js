@@ -5,7 +5,6 @@ import KoaLogger from 'koa-logger'
 
 // our packages
 import router from './api/router'
-import Responder from './utils/Responder'
 
 const logger = require('debug')('terappia:app')
 
