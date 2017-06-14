@@ -38,8 +38,12 @@ class App {
 
   handleErrors () {
     this.app
-      .on('error', (err, ctx) =>
-        logger('server error', err, ctx)
+      .on(
+        'error',
+        (err, ctx) => {
+          logger('Application error', err)
+          logger('Error context', ctx)
+        }
       )
   }
 
