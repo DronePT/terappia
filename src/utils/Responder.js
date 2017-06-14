@@ -35,7 +35,7 @@ class Responder {
   toJSON () {
     let { success, data, meta, error, code } = this
     if (error) error = { message: error, code }
-    return { success, data, error, meta }
+    return { success, error, data, meta }
   }
 }
 
