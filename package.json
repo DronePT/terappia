@@ -22,9 +22,11 @@
   },
   "dependencies": {
     "debug": "^2.6.8",
+    "joi": "^10.5.2",
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-logger": "2",
-    "koa-router": "next"
+    "koa-router": "next",
+    "thenify": "^3.3.0"
   }
 }

@@ -1,15 +1,23 @@
+// our packages
 import Responder from './../../../utils/Responder'
 
 const logger = require('debug')('terappia:AuthController')
 
 class AuthController {
-  authenticate (ctx) {
-    logger(ctx.request.body)
+  async authenticate (ctx, next) {
+    // verify if body is valid
+    if (!ctx.isValid) {
+      ctx.status = 400
+      ctx.body = new Responder()
+        .asError('validation error')
+        .withData(ctx.validationErrors)
+
+      return
+    }
 
     ctx.body = new Responder()
-      .asError('Invalid credentials')
       .withData({
-        missing: [ 'email', 'password' ]
+        token: '8zoQIrS4o7QlIPDnA7wdHb69cOl099sG'
       })
   }
 }

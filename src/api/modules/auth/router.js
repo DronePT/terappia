@@ -3,10 +3,15 @@ import Router from 'koa-router'
 
 // our packages
 import Controller from './controller'
+import Validator from './validator'
 
 const router = new Router({ prefix: '/auth' })
 
 router
-  .post('/', Controller.authenticate)
+  .post(
+    '/',
+    Validator.authenticate,
+    Controller.authenticate
+  )
 
 export default router
