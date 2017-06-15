@@ -14,7 +14,8 @@ class App {
 
     this.middlewares()
     this.routes()
-    this.handleErrors()
+    // TODO: uncomment error handler
+    // this.handleErrors()
   }
 
   // install app middlewares
@@ -33,13 +34,7 @@ class App {
 
     this.app
       .use(router.routes())
-      .use(
-        router.allowedMethods({
-          throw: false,
-          notImplemented: () => new Error('notimpl!'),
-          methodNotAllowed: () => new Error('lol')
-        })
-      )
+      .use(router.allowedMethods())
   }
 
   handleErrors () {
